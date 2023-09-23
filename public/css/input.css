@@ -1,0 +1,79 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Group  Utilities*/
+.display-none{
+  @apply hidden;
+}
+
+.my-container{
+    @apply max-w-7xl px-4 sm:px-6 mx-auto
+}
+.tran{
+    @apply transition-all duration-300 ease-in-out
+}
+.menu-item {
+    @apply hover:text-blue-500 font-medium transition-all duration-300 text-[#222950] dark:text-[#DBE0FF] dark:hover:text-blue-500
+}
+.primary-btn {
+    @apply bg-[#0472ED] px-6 py-2 rounded-full text-white hover:bg-blue-500 active:bg-blue-700 focus:outline-none focus:ring focus:ring-blue-300 transition-all duration-300
+}
+.brand_logo {
+  @apply h-20 w-full cursor-pointer rounded-lg border border-[#F1F1F1] dark:border-slate-700 bg-white dark:bg-[#191F34] object-contain px-4 py-4 shadow-lg shadow-blue-900/5 duration-500 hover:scale-90 hover:border-blue-500 dark:hover:border-blue-500;
+}
+.s-box {
+  @apply flex cursor-pointer flex-col rounded-2xl border border-[#F1F1F1] dark:border-transparent dark:bg-[#191F34] p-7 shadow-lg shadow-blue-900/5 hover:border hover:border-blue-500/30 dark:hover:border-blue-500/50 hover:shadow-xl hover:shadow-blue-900/5;
+}
+.s-box-link {
+  @apply flex items-center justify-start gap-2 text-sm font-medium text-[#007AFF] dark:text-blue-400 hover:gap-3 hover:opacity-50;
+}
+.s-box-h4 {
+  @apply mb-2 text-lg font-semibold text-[#222950] dark:text-slate-200;
+}
+.s-box-p {
+  @apply mb-5 text-sm text-slate-600 lg:text-base dark:text-slate-400;
+}
+.faq-box {
+  @apply overflow-hidden rounded-xl shadow-lg shadow-blue-900/5 outline-none hover:shadow-xl hover:shadow-blue-900/5 hover:outline hover:outline-1 hover:outline-blue-500/30;
+}
+.faq-h {
+  @apply flex cursor-pointer items-center justify-between gap-6 bg-white dark:bg-[#212945] px-4 py-4 sm:px-6 sm:py-6;
+}
+.faq-ht {
+  @apply text-left text-sm font-semibold text-[#222950] dark:text-slate-300 dark:font-medium md:text-base;
+}
+.faq-icon {
+  @apply min-w-[40px] text-center text-[#595F84];
+}
+.faq-p {
+  @apply border-t border-t-[#c7c9d27c] dark:border-t-slate-700 px-4 py-4 text-sm text-[#9396A8] dark:text-slate-400 sm:px-6 sm:py-6 md:text-base;
+}
+.form-input {
+  @apply block w-full rounded-lg border border-[#D1D3DE] dark:border-slate-700 dark:bg-[#182035] py-[14px] pl-10 pr-4 text-sm outline-none duration-300 placeholder:text-[#8A94A6] dark:text-white focus:border-blue-500/50 sm:pl-12 md:text-base;
+}
+.f-heading {
+  @apply mb-6 text-base font-bold uppercase text-[#222950] dark:text-slate-200 sm:mb-8;
+}
+.f-link {
+  @apply tran text-[15px] font-medium text-[#9396A8] hover:text-slate-600;
+}
+/* popup */
+.popup_bg {
+  @apply hidden fixed inset-0 bg-black/50 backdrop-blur-sm dark:bg-slate-900/80 z-10 justify-center items-center;
+}
+.popup_box {
+  @apply bg-white dark:bg-[#191F34] shadow-xl m-4 rounded-xl max-w-3xl overflow-hidden;
+}
+.popup_header {
+  @apply flex justify-between bg-slate-50 dark:bg-[#1f263f] border-b px-6 py-3 border-b-slate-500/10;
+}
+.popup_icon {
+  @apply w-6 h-6 p-1 bg-white dark:bg-[#191F34] text-red-500 border border-red-500/30 flex justify-center items-center rounded-md shadow-md shadow-blue-950/10 cursor-pointer tran hover:bg-red-500 hover:text-white;
+}
+.popup_h1 {
+  @apply text-lg font-semibold text-slate-800 dark:text-slate-200;
+}
+.popup_p {
+  @apply text-sm text-slate-500 dark:text-slate-400 md:text-base;
+}
