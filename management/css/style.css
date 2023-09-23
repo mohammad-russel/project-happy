@@ -1,0 +1,698 @@
+/* =====================================
+==================pickup================
+===================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.dealer-list {
+    padding: 50px 30px;
+    border-radius: 30px;
+    background: #fff;
+}
+
+.dealer-list__title-area {
+    margin-bottom: 35px;
+    position: relative;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.dealer-list__title-area svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.dealser-list__title-area-title {
+    color: #222950;
+    text-align: center;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 133.714%;
+    /* 24.069px */
+    letter-spacing: 0.54px;
+}
+
+.dealer-list__item {
+    border-radius: 10px;
+    border: 1px solid rgba(46, 49, 133, 0.08);
+    background: #fff;
+    box-shadow: 0px 10px 20px 0px rgba(5, 46, 128, 0.05);
+    margin-bottom: 20px;
+}
+
+.dealer-list__person {
+    padding: 17px;
+    display: flex;
+    align-items: center;
+}
+
+.dealer-list__item-title {
+    color: #222950;
+    font-feature-settings: "clig" off, "liga" off;
+    font-family: "Baloo Da 2";
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: -0.5px;
+    text-transform: capitalize;
+    padding-left: 23px;
+}
+
+.dealer-list__btn-ctontainer {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    border: 1px solid rgba(46, 49, 133, 0.08);
+    background: #fff;
+}
+
+.dealer-list__btn {
+    padding: 14px;
+    color: #595f84;
+    text-align: center;
+    font-family: Plus Jakarta Sans;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    background-color: #fff;
+    outline: none;
+    border: none;
+}
+
+.dealer-list__btn span:first-child {
+    color: #8a94a6;
+    text-align: center;
+    font-family: Plus Jakarta Sans;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    border-right: 1px solid rgba(46, 49, 133, 0.08);
+}
+
+/* =====================================
+==================pickup Summery================
+===================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.product {
+    padding: 50px 30px;
+    border-radius: 30px;
+    background: #fff;
+}
+
+.product__title-area {
+    margin-bottom: 35px;
+    position: relative;
+    text-align: center;
+}
+
+.product__title-area svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.product__title-area-title {
+    color: #222950;
+    text-align: center;
+    font-family: "Anek Bangla";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 133.714%;
+    /* 21.394px */
+    letter-spacing: 0.48px;
+}
+
+.product__select {
+    border-radius: 10px;
+    border: 1px solid #E5E7F0;
+    background: #FFF;
+    padding: 12px 16px;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.product__item {
+    border-radius: 10px;
+    border: 1px solid rgba(46, 49, 133, 0.08);
+    background: #fff;
+    box-shadow: 0px 10px 20px 0px rgba(5, 46, 128, 0.05);
+    margin-bottom: 20px;
+}
+
+.product__person {
+    padding: 17px;
+    display: flex;
+    align-items: center;
+}
+
+.product__person img {
+    margin-right: 22px;
+}
+
+.product__item-title {
+    color: #222950;
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-family: "Plus Jakarta Sans";
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: -0.5px;
+    text-transform: capitalize;
+    margin-bottom: 16px;
+}
+
+.product__item-quantity {
+    display: flex;
+}
+
+.product__item-quantity h3:first-child {
+    margin-right: 23px;
+}
+
+.product__item-quantity h3 span:first-child {
+    color: #8A94A6;
+    text-align: center;
+    font-family: "Plus Jakarta Sans";
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-right: 8px;
+}
+
+.product__item-quantity h3 {
+    color: #595F84;
+    text-align: center;
+    font-family: "Plus Jakarta Sans";
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.product__btn-ctontainer {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    border: 1px solid rgba(46, 49, 133, 0.08);
+    background: #fff;
+}
+
+.product__btn {
+    color: #595F84;
+    text-align: center;
+    font-family: "Plus Jakarta Sans";
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    outline: none;
+    border: none;
+    background-color: #fff;
+    padding: 15px;
+    cursor: pointer;
+}
+
+.product__btn:first-of-type {
+    color: #8a94a6;
+    text-align: center;
+    font-family: Plus Jakarta Sans;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    border-right: 1px solid rgba(46, 49, 133, 0.08);
+    border-radius: 0px 0px 0px 10px;
+    border-top: 1px solid rgba(34, 140, 255, 0.15);
+    border-bottom: 1px solid rgba(34, 140, 255, 0.15);
+    border-left: 1px solid rgba(34, 140, 255, 0.15);
+    background: rgba(34, 140, 255, 0.05);
+}
+
+.product__btn:last-child {
+    border-radius: 0px 0px 10px 0px;
+    border-top: 1px solid rgba(12, 175, 96, 0.15);
+    border-right: 1px solid rgba(12, 175, 96, 0.15);
+    border-bottom: 1px solid rgba(12, 175, 96, 0.15);
+    background: #F6FFF9;
+}
+
+/* =====================================
+==================check Summery================
+===================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.checker {
+    padding: 50px 30px;
+    border-radius: 30px;
+    background: #fff;
+}
+
+.checker__title-area {
+    margin-bottom: 35px;
+    position: relative;
+    text-align: center;
+}
+
+.checker__title-area svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.checker__title-area-title {
+    color: #222950;
+    text-align: center;
+    font-family: "Plus Jakarta Sans";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 133.714%;
+    /* 24.069px */
+    letter-spacing: 0.54px;
+}
+
+.checker__item {
+    border-radius: 10px;
+    border: 1px solid rgba(46, 49, 133, 0.08);
+    background: #fff;
+    box-shadow: 0px 10px 20px 0px rgba(5, 46, 128, 0.05);
+    margin-bottom: 20px;
+    display: flex;
+    padding: 17px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.checker__item-left-side {
+    display: flex;
+    align-items: center;
+}
+
+.checker__item-image {
+    margin-right: 18px;
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+
+}
+
+.checker__item-title {
+    color: #222950;
+    font-feature-settings: "clig" off, "liga" off;
+    font-family: "Plus Jakarta Sans";
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: -0.5px;
+    text-transform: capitalize;
+}
+
+.checker__item-right-side {
+    display: flex;
+    align-items: center;
+}
+
+.checker__item-quantity {
+    color: #8a94a6;
+    text-align: center;
+    font-family: Plus Jakarta Sans;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.checker__item-quantity span {
+    color: #595f84;
+    text-align: center;
+    font-family: Plus Jakarta Sans;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+input {
+    margin-left: 23px;
+}
+
+/* =====================================
+==================DSR================
+===================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.dsr {
+    padding: 50px 30px;
+    border-radius: 30px;
+    background: #fff;
+}
+
+.dsr__title-area {
+    margin-bottom: 35px;
+    position: relative;
+    text-align: center;
+}
+
+.dsr__title-area svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.dsr__title-area-title {
+    color: #222950;
+    text-align: center;
+    font-family: "Plus Jakarta Sans";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 133.714%;
+    /* 24.069px */
+    letter-spacing: 0.54px;
+}
+
+.dsr__item {
+    border-radius: 10px;
+    border: 1px solid rgba(46, 49, 133, 0.08);
+    background: #fff;
+    box-shadow: 0px 10px 20px 0px rgba(5, 46, 128, 0.05);
+    margin-bottom: 20px;
+    display: flex;
+    padding: 17px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.dsr__item-left-side {
+    display: flex;
+    align-items: center;
+}
+
+.dsr__item-btn {
+    padding: 13px;
+    color: #007aff;
+    text-align: center;
+    font-family: "Plus Jakarta Sans";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 133.714%;
+    /* 21.394px */
+    letter-spacing: 0.48px;
+    background-color: #f2f8ff;
+    border-radius: 30px;
+    border: none;
+    outline: none;
+    margin-right: 17px;
+}
+
+.dsr__item-title {
+    color: #222950;
+    font-family: "Baloo Da 2";
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: -0.5px;
+    text-transform: capitalize;
+}
+
+
+/* =====================================
+==================bazar================
+===================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.packing {
+    padding: 50px 30px;
+    border-radius: 30px;
+    background: #fff;
+}
+
+.packing__title-area {
+    margin-bottom: 35px;
+    position: relative;
+    text-align: center;
+}
+
+.packing__title-area svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.packing__title-area-title {
+    color: #222950;
+    text-align: center;
+    font-family: "Plus Jakarta Sans";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 133.714%;
+    /* 24.069px */
+    letter-spacing: 0.54px;
+}
+
+.packing__item {
+    border-radius: 10px;
+    border: 1px solid rgba(0, 122, 255, 0.28);
+    background: #fff;
+    margin-bottom: 25px;
+}
+
+.packing__item-main-side {
+    padding: 17px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(0, 122, 255, 0.05);
+}
+
+.packing__item-main-side h2 {
+    color: #222950;
+    font-feature-settings: "clig" off, "liga" off;
+    font-family: "Baloo Da 2";
+    font-size: 17px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    letter-spacing: -0.5px;
+}
+
+.packing__item-main-side h3 {
+    color: #007aff;
+    text-align: right;
+    font-family: "Plus Jakarta Sans";
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.packing__item-sub-side {
+    padding: 17px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #595f8417;
+}
+
+.packing__item-sub-side-title {
+    color: #595f84;
+    font-family: "Baloo Da 2";
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: -0.5px;
+    text-transform: capitalize;
+}
+
+.packing__item-sub-side-container {
+    display: flex;
+}
+
+.packing__item-sub-side-container h3:first-child {
+    color: #8a94a6;
+    text-align: center;
+    font-family: "Plus Jakarta Sans";
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.packing__item-sub-side-container h3:last-child {
+    color: #595f84;
+    text-align: right;
+    font-family: "Plus Jakarta Sans";
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    margin-left: 13px;
+}
+
+
+/* =====================================
+==================popup================
+===================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #ebebedb0;
+}
+
+.packing {
+    margin: 80px 28px;
+    text-align: right;
+}
+
+.packing svg {
+    margin-bottom: 35px;
+}
+
+.packing__container {
+    padding: 20px;
+    border-radius: 16px;
+    background: #fff;
+
+    /* shadow-sm */
+    box-shadow: 0px 10px 20px 0px rgba(5, 46, 128, 0.03);
+}
+
+.packing__title {
+    color: #595f84;
+    font-feature-settings: "clig" off, "liga" off;
+    font-family: Baloo Da 2;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: -0.5px;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.packing__select {
+    border-radius: 10px;
+    border: 1px solid #e5e7f0;
+    background: #fff;
+    width: 100%;
+    padding: 12px 16px;
+    color: #595f84;
+    font-family: "Baloo Da 2";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 22px;
+    /* 157.143% */
+    margin-bottom: 33px;
+}
+
+.packing__product-item-main {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #343955;
+    font-family: "Plus Jakarta Sans";
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    text-transform: capitalize;
+    margin-bottom: 20px;
+}
+
+.packing__product-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #595f84;
+    font-family: "Plus Jakarta Sans";
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-transform: capitalize;
+    padding: 16px 0;
+    border-bottom: 1px solid #8a94a63a;
+}
+
+.pack-now-btn {
+    width: 100%;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    background: linear-gradient(180deg, #258aff 0%, #0063ff 100%);
+    padding: 12px 16px;
+    color: #fff;
+    font-family: "Baloo Da 2";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 22px;
+    /* 157.143% */
+    margin-top: 24px;
+    cursor: pointer;
+}
+
+.cancel-btn {
+    width: 100%;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    border: 1px solid #e5e7f0;
+    padding: 12px 16px;
+    color: #263238;
+    font-family: "Baloo Da " 2;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 22px;
+    /* 157.143% */
+    background-color: #fff;
+    margin-top: 15px;
+    cursor: pointer;
+}
+
+
+/* =====================================
+==================check Summery================
+===================================== */

@@ -1,0 +1,148 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.order {
+    margin: 28px 37px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.order__title {
+    color: #222950;
+    text-align: center;
+    font-family: "Plus Jakarta Sans";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 133.714%;
+    /* 24.069px */
+    letter-spacing: 0.54px;
+}
+
+.order__item {
+    border-radius: 8px;
+    border: 1px solid var(--greyscale-100, #F1F5F9);
+    background: #F8FAFC;
+    margin: 37px 17px;
+}
+
+.order__item-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 17px;
+}
+
+.order__item-header h2 {
+    color: #222950;
+    font-family: "Baloo Da 2";
+    font-size: 17px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    letter-spacing: -0.5px;
+}
+
+.order__item-header h3 {
+    color: #007AFF;
+    font-family: "Baloo Da 2";
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    letter-spacing: -0.5px;
+}
+
+.order__item-container {
+    border-radius: 8px;
+    border: 1px solid var(--greyscale-100, #F1F5F9);
+    background: #FFF;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    justify-content: space-between;
+
+
+}
+
+.order__item-overview {
+    border-right: 1px solid #F0F4F9;
+
+    padding: 17px;
+
+}
+
+.order__item-overview:last-child h3:last-child {
+    color: #FF565E;
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-family: Baloo Da 2;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: -0.5px;
+}
+
+.order__item-overview h3:first-of-type {
+    color: #595F84;
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-family: "Baloo Da 2";
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: -0.5px;
+}
+
+.order__item-overview h3:last-of-type {
+    color: #595F84;
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-family: "Baloo Da 2";
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: -0.5px;
+}
+
+.total {
+    padding: 28px 34px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    border-radius: 20px 20px 0px 0px;
+    background: #FFF;
+    box-shadow: 0px -5px 50px 0px rgba(0, 45, 94, 0.12);
+}
+
+.total h2:first-child {
+    color: #222950;
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-family: Inter;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    letter-spacing: -0.5px;
+    text-transform: capitalize;
+}
+
+.total h2:last-child {
+    color: #222950;
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-family: Inter;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    letter-spacing: -0.5px;
+    text-transform: capitalize;
+}
+
+.list {
+    margin-bottom: 100px;
+}
