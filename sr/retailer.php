@@ -111,6 +111,10 @@ $sr_id = $_SESSION["sr_id"];
                 transform: scale(0.8);
             }
         }
+
+        .myRoute {
+            align-items: baseline;
+        }
     </style>
 
 </head>

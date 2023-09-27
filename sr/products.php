@@ -5,7 +5,7 @@ if (!isset($_SESSION["sr_id"])) {
     exit();
 }
 $sr_id = $_SESSION["sr_id"];
-
+@include "../public/php/config.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -28,6 +28,7 @@ $sr_id = $_SESSION["sr_id"];
     <!-- <script src="https://cdn.tailwindcss.com"></script> -->
     <link rel="stylesheet" href="css/main.css" />
 
+    <script src="../public/js/code.jquery.com_jquery-3.7.1.min.js"></script>
     <!-- icon -->
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
 
@@ -191,11 +192,19 @@ $sr_id = $_SESSION["sr_id"];
         <div class="p-[2px] pb-20 lg:max-h-[600px] lg:overflow-auto">
             <!-- product c -->
             <div class="grid grid-cols-3 gap-4">
-                <a href="#" class="product-c tran">
-                    <img class="mb-4 w-12" src="../public/image/icon/c1.png" alt="" />
-                    <h3 class="bn text-[10px] font-semibold xs:text-sm">ক্যান্ডি</h3>
-                </a>
-                <a href="#" class="product-c tran">
+                <?php
+                $sql = "SELECT * FROM category";
+                $result = mysqli_query($con, $sql);
+                while ($row = mysqli_fetch_assoc($result)) { ?>
+                    <a href="#" class="product-c tran">
+                        <input type="hidden" name="category_id" id="category_id" class="category_id" value="<?php echo $row['id'] ?>">
+                        <img class="mb-4 w-12" src="../public/image/icon/<?php echo $row['icon'] ?>" alt="" />
+                        <h3 class="bn text-[10px] font-semibold xs:text-sm">ক্যান্ডি</h3>
+                    </a>
+                <?php  }
+                ?>
+
+                <!-- <a href="#" class="product-c tran">
                     <img class="mb-4 w-12" src="../public/image/icon/c2.png" alt="" />
                     <h3 class="bn text-[10px] font-semibold xs:text-sm">স্ন্যাকস</h3>
                 </a>
@@ -214,7 +223,7 @@ $sr_id = $_SESSION["sr_id"];
                 <a href="#" class="product-c tran">
                     <img class="mb-4 w-12" src="../public/image/icon/c6.png" alt="" />
                     <h3 class="bn text-[10px] font-semibold xs:text-sm">চিপস</h3>
-                </a>
+                </a> -->
             </div>
 
             <!-- title -->
@@ -223,106 +232,14 @@ $sr_id = $_SESSION["sr_id"];
                 <ion-icon class="tran h-5 w-5 rounded-full bg-slate-100 p-1 text-[#8A94A6] hover:text-slate-700" name="chevron-forward-outline"></ion-icon>
             </a>
             <!-- product -->
-            <div class="grid grid-cols-2 gap-6">
-                <div class="s-product" onclick="productView()">
-                    <div class="mb-4 flex h-24 w-full justify-center p-2">
-                        <!-- NOTE: image size 100x100 px -->
-                        <img class="w-full object-contain" src="../public/image/product/Sauce-Teriyaki-443g-Bottle.jpg" alt="" />
-                    </div>
-                    <h4 class="bn mb-4 text-[14px] font-medium text-[#222950]">মিল্ক বিস্কুট<span class="bn ml-2 text-[12px] text-[#8094AA]">(50g)</span></h4>
-                    <div class="flex items-center justify-between">
-                        <h1 class="text-lg font-bold text-[#007AFF]">৳ 4.0</h1>
-                        <a href="#" class="add-to">
-                            <ion-icon class="text-2xl" name="add-outline"></ion-icon>
-                        </a>
-                    </div>
-                </div>
-                <div class="s-product" onclick="productView()">
-                    <div class="mb-4 flex h-24 w-full justify-center p-2">
-                        <!-- NOTE: image size 100x100 px -->
-                        <img class="w-full object-contain" src="../public/image/product/Sauce-Teriyaki-443g-Bottle.jpg" alt="" />
-                    </div>
-                    <h4 class="bn mb-4 text-[14px] font-medium text-[#222950]">মিল্ক বিস্কুট<span class="bn ml-2 text-[12px] text-[#8094AA]">(50g)</span></h4>
-                    <div class="flex items-center justify-between">
-                        <h1 class="text-lg font-bold text-[#007AFF]">৳ 4.0</h1>
-                        <a href="#" class="add-to">
-                            <ion-icon class="text-2xl" name="add-outline"></ion-icon>
-                        </a>
-                    </div>
-                </div>
-                <div class="s-product" onclick="productView()">
-                    <div class="mb-4 flex h-24 w-full justify-center p-2">
-                        <!-- NOTE: image size 100x100 px -->
-                        <img class="w-full object-contain" src="../public/image/product/Sauce-Teriyaki-443g-Bottle.jpg" alt="" />
-                    </div>
-                    <h4 class="bn mb-4 text-[14px] font-medium text-[#222950]">মিল্ক বিস্কুট<span class="bn ml-2 text-[12px] text-[#8094AA]">(50g)</span></h4>
-                    <div class="flex items-center justify-between">
-                        <h1 class="text-lg font-bold text-[#007AFF]">৳ 4.0</h1>
-                        <a href="#" class="add-to">
-                            <ion-icon class="text-2xl" name="add-outline"></ion-icon>
-                        </a>
-                    </div>
-                </div>
-                <div class="s-product" onclick="productView()">
-                    <div class="mb-4 flex h-24 w-full justify-center p-2">
-                        <!-- NOTE: image size 100x100 px -->
-                        <img class="w-full object-contain" src="../public/image/product/Sauce-Teriyaki-443g-Bottle.jpg" alt="" />
-                    </div>
-                    <h4 class="bn mb-4 text-[14px] font-medium text-[#222950]">মিল্ক বিস্কুট<span class="bn ml-2 text-[12px] text-[#8094AA]">(50g)</span></h4>
-                    <div class="flex items-center justify-between">
-                        <h1 class="text-lg font-bold text-[#007AFF]">৳ 4.0</h1>
-                        <a href="#" class="add-to">
-                            <ion-icon class="text-2xl" name="add-outline"></ion-icon>
-                        </a>
-                    </div>
-                </div>
+            <div class="product-list grid grid-cols-2 gap-6">
+
             </div>
         </div>
 
         <!-- Product details popup -->
         <div class="productDetails popup_bg popup !z-[100] overflow-auto">
-            <div class="relative mt-20 min-w-[280px] rounded-xl border-4 border-white bg-[#F2F3F9] md:min-w-[580px] happy-popup">
-                <ion-icon onclick="closeProductDetails()" class="absolute -top-16 right-0 h-6 w-6 cursor-pointer overflow-hidden rounded-full bg-white p-2 text-blue-600" name="close-outline"></ion-icon>
 
-                <div class="flex h-60 w-full items-center justify-center overflow-hidden">
-                    <img class="h-44 w-52 object-contain" src="../public/image/product/Sauce-Teriyaki-443g-Bottle.jpg" alt="" />
-                </div>
-                <div class="rounded-t-2xl bg-white px-6 pt-8 pb-5">
-                    <div class="mb-5 flex items-start justify-between">
-                        <h4 class="bn mb-4 text-lg font-bold text-[#222950]">মিল্ক বিস্কুট<span class="bn ml-3 text-sm text-[#8094AA]">(50g)</span></h4>
-                        <!-- price -->
-
-                        <input class="rounded-full border border-[#EBEDF5] px-4 py-2 text-[#393d58] outline-none w-[100px] text-center" type="text" name="price" id="price" placeholder="5000">
-
-                    </div>
-                    <div class="mb-5 flex gap-8">
-                        <div>
-                            <input type="radio" id="box" name="product_type" value="box" checked />
-                            <label class="bn font-semibold text-[#8A94A6]" for="box">বক্স</label>
-                        </div>
-                        <div>
-                            <input type="radio" id="pc" name="product_type" value="pc" />
-                            <label class="bn font-semibold text-[#8A94A6]" for="pc">পিচ</label><br />
-                        </div>
-                    </div>
-                    <div class="mb-5 flex flex-col gap-2 rounded-lg border border-[#EBEDF5] px-3 py-2">
-                        <p class="bn flex items-center justify-between text-sm font-semibold text-[#595F84]">মোট : <span class="text-red-500 bn">২৫০.০০</span></p>
-                        <hr class="border-[#EBEDF5]" />
-                        <p class="bn flex items-center justify-between text-sm font-semibold text-[#595F84]">প্রতি পিস : <span class="text-red-500 bn">২৫০.০০</span></p>
-                    </div>
-                    <div class="mb-4 flex justify-between gap-4">
-                        <button class="tran flex h-[50px] min-w-[50px] items-center justify-center rounded-lg bg-[#F2F3F9] hover:bg-blue-500 group" onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
-                            <ion-icon class="text-2xl text-[#007AFF] group-hover:text-white tran" name="remove-outline"></ion-icon>
-                        </button>
-                        <input class="quantity tran w-full rounded-lg border-2 border-[#EBEDF5] text-center outline-none focus:border-blue-500" min="0" name="quantity" value="1" type="number" />
-                        <button class="tran flex h-[50px] min-w-[50px] items-center justify-center rounded-lg bg-[#F2F3F9] hover:bg-blue-500 group" onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
-                            <ion-icon class="text-2xl text-[#007AFF] group-hover:text-white tran" name="add-outline"></ion-icon>
-                        </button>
-                    </div>
-
-                    <button type="#" class="tran w-full rounded-xl bg-gradient-to-t from-[#0063FF] to-[#258AFF] py-3.5 font-semibold text-white focus:outline-none focus:ring focus:ring-blue-300 active:bg-blue-700">Add to cart</button>
-                </div>
-            </div>
         </div>
 
         <!-- nav -->
@@ -446,6 +363,47 @@ $sr_id = $_SESSION["sr_id"];
         function closemyCart() {
             cartItem.classList.remove("cartPopup");
         }
+    </script>
+    <script>
+        $(document).ready(function() {
+            function load_product() {
+                $.ajax({
+                    url: "php/load-product",
+                    type: "POST",
+                    success: function(data) {
+                        $(".product-list").append(data);
+                    }
+                })
+            }
+            load_product()
+            $(".product-c").click(function() {
+                var category_id = $(this).children(".category_id").val();
+                // alert(category_id)
+                $.ajax({
+                    url: "php/load-product",
+                    type: "POST",
+                    data: {
+                        category_id: category_id
+                    },
+                    success: function(data) {
+                        $(".product-list").html(data);
+                    }
+                })
+            })
+            $(document).on("click", ".s-product", function() {
+                var product_id = $(this).children(".product_id").val();
+                $.ajax({
+                    url: "php/product-popup",
+                    type: "POST",
+                    data: {
+                        product_id: product_id
+                    },
+                    success: function(data) {
+                        $(".productDetails").html(data);
+                    }
+                })
+            })
+        })
     </script>
 </body>
 
