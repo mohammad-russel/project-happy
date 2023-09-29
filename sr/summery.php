@@ -1,3 +1,12 @@
+<?php
+session_start();
+if (!isset($_SESSION["sr_id"])) {
+    header("Location:./");
+    exit();
+}
+$sr_id = $_SESSION["sr_id"];
+@include "../public/php/config.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,10 +21,13 @@
 <body>
     <div class="order__container">
         <div class="order">
-            <svg width="41" height="41" viewBox="0 0 41 41" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="20.5" cy="20.5" r="20.5" fill="#F8F8FB" />
-                <path d="M23 15L17 21L23 27" stroke="#8A94A6" stroke-width="1.875" stroke-linecap="round" stroke-linejoin="round" />
-            </svg>
+            <a href="dashboard">
+                <svg width="41" height="41" viewBox="0 0 41 41" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="20.5" cy="20.5" r="20.5" fill="#F8F8FB" />
+                    <path d="M23 15L17 21L23 27" stroke="#8A94A6" stroke-width="1.875" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+            </a>
+
             <h3 class="order__title">Order</h3>
             <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <rect width="40" height="40" rx="20" fill="#F8F8FB" />
@@ -23,205 +35,54 @@
             </svg>
         </div>
         <div class="list">
-            <div class="order__item">
-                <div class="order__item-header">
-                    <h2>পণ্যের নাম </h2>
-                    <h3>Tk 10</h3>
-                </div>
-                <div class="order__item-container">
-                    <div class="order__item-overview">
-                        <h3>পরিমান</h3>
-                        <h3>10</h3>
+            <?php
+            $sql = "SELECT *,MAX(orders.price) AS per_price,SUM(orders.piece) AS total_piece,COUNT(DISTINCT retailer_id) AS retailer,product_id, SUM(sr_total_amount) AS sr_total,SUM(total_amount) AS main_total FROM orders INNER JOIN product ON orders.product_id = product.id WHERE sr_id = $sr_id GROUP BY product_id";
+            $result = mysqli_query($con, $sql);
+            while ($row = mysqli_fetch_assoc($result)) {
+                $sr_total = $row['sr_total'];
+                $main_total = $row['main_total'];
+                $oc = $main_total - $sr_total;
+            ?>
+                <div class="order__item">
+                    <div class="order__item-header">
+                        <h2><?php echo $row['name'] ?> </h2>
+                        <h3>Tk <?php echo $row['sr_total'] ?></h3>
                     </div>
-                    <div class="order__item-overview">
-                        <h3>দোকানদার</h3>
-                        <h3>20</h3>
-                    </div>
-                    <div class="order__item-overview">
-                        <h3>প্রতি পিস</h3>
-                        <h3>Tk 5</h3>
-                    </div>
-                    <div class="order__item-overview">
-                        <h3>O/C</h3>
-                        <h3>-1220</h3>
-                    </div>
-                </div>
-            </div>
-            <div class="order__item">
-                <div class="order__item-header">
-                    <h2>পণ্যের নাম </h2>
-                    <h3>Tk 10</h3>
-                </div>
-                <div class="order__item-container">
-                    <div class="order__item-overview">
-                        <h3>পরিমান</h3>
-                        <h3>10</h3>
-                    </div>
-                    <div class="order__item-overview">
-                        <h3>দোকানদার</h3>
-                        <h3>20</h3>
-                    </div>
-                    <div class="order__item-overview">
-                        <h3>প্রতি পিস</h3>
-                        <h3>Tk 5</h3>
-                    </div>
-                    <div class="order__item-overview">
-                        <h3>O/C</h3>
-                        <h3>-1220</h3>
-                    </div>
-                </div>
+                    <div class="order__item-container">
+                        <div class="order__item-overview">
+                            <h3>পরিমান</h3>
+                            <h3><?php echo $row['total_piece'] ?></h3>
+                        </div>
+                        <div class="order__item-overview">
+                            <h3>দোকানদার</h3>
+                            <h3><?php echo $row['retailer'] ?></h3>
+                        </div>
+                        <div class="order__item-overview">
+                            <h3>প্রতি পিস</h3>
+                            <h3>Tk <?php echo $row['per_price'] ?></h3>
+                        </div>
+                        <div class="order__item-overview">
+                            <h3>O/C</h3>
+                            <?php
+                            if ($oc > 0) {
+                            ?>
+                                <h3 class="oc" style="color:green;">+<?php echo number_format(abs($oc), 2) ?></h3>
+                            <?php
+                            } elseif ($oc < 0) {
+                            ?>
+                                <h3 class="oc" style="color:red;">-<?php echo number_format(abs($oc), 2) ?></h3>
+                            <?php
+                            } elseif ($oc == 0) {
+                            ?>
+                                <h3 class="oc" style="color:gray;"><?php echo number_format(abs($oc), 2) ?></h3>
+                            <?php
+                            }
+                            ?>
 
-            </div>
-            <div class="order__item">
-                <div class="order__item-header">
-                    <h2>পণ্যের নাম </h2>
-                    <h3>Tk 10</h3>
-                </div>
-                <div class="order__item-container">
-                    <div class="order__item-overview">
-                        <h3>পরিমান</h3>
-                        <h3>10</h3>
-                    </div>
-                    <div class="order__item-overview">
-                        <h3>দোকানদার</h3>
-                        <h3>20</h3>
-                    </div>
-                    <div class="order__item-overview">
-                        <h3>প্রতি পিস</h3>
-                        <h3>Tk 5</h3>
-                    </div>
-                    <div class="order__item-overview">
-                        <h3>O/C</h3>
-                        <h3>-1220</h3>
+                        </div>
                     </div>
                 </div>
-
-            </div>
-            <div class="order__item">
-                <div class="order__item-header">
-                    <h2>পণ্যের নাম </h2>
-                    <h3>Tk 10</h3>
-                </div>
-                <div class="order__item-container">
-                    <div class="order__item-overview">
-                        <h3>পরিমান</h3>
-                        <h3>10</h3>
-                    </div>
-                    <div class="order__item-overview">
-                        <h3>দোকানদার</h3>
-                        <h3>20</h3>
-                    </div>
-                    <div class="order__item-overview">
-                        <h3>প্রতি পিস</h3>
-                        <h3>Tk 5</h3>
-                    </div>
-                    <div class="order__item-overview">
-                        <h3>O/C</h3>
-                        <h3>-1220</h3>
-                    </div>
-                </div>
-
-            </div>
-            <div class="order__item">
-                <div class="order__item-header">
-                    <h2>পণ্যের নাম </h2>
-                    <h3>Tk 10</h3>
-                </div>
-                <div class="order__item-container">
-                    <div class="order__item-overview">
-                        <h3>পরিমান</h3>
-                        <h3>10</h3>
-                    </div>
-                    <div class="order__item-overview">
-                        <h3>দোকানদার</h3>
-                        <h3>20</h3>
-                    </div>
-                    <div class="order__item-overview">
-                        <h3>প্রতি পিস</h3>
-                        <h3>Tk 5</h3>
-                    </div>
-                    <div class="order__item-overview">
-                        <h3>O/C</h3>
-                        <h3>-1220</h3>
-                    </div>
-                </div>
-
-            </div>
-            <div class="order__item">
-                <div class="order__item-header">
-                    <h2>পণ্যের নাম </h2>
-                    <h3>Tk 10</h3>
-                </div>
-                <div class="order__item-container">
-                    <div class="order__item-overview">
-                        <h3>পরিমান</h3>
-                        <h3>10</h3>
-                    </div>
-                    <div class="order__item-overview">
-                        <h3>দোকানদার</h3>
-                        <h3>20</h3>
-                    </div>
-                    <div class="order__item-overview">
-                        <h3>প্রতি পিস</h3>
-                        <h3>Tk 5</h3>
-                    </div>
-                    <div class="order__item-overview">
-                        <h3>O/C</h3>
-                        <h3>-1220</h3>
-                    </div>
-                </div>
-
-            </div>
-            <div class="order__item">
-                <div class="order__item-header">
-                    <h2>পণ্যের নাম </h2>
-                    <h3>Tk 10</h3>
-                </div>
-                <div class="order__item-container">
-                    <div class="order__item-overview">
-                        <h3>পরিমান</h3>
-                        <h3>10</h3>
-                    </div>
-                    <div class="order__item-overview">
-                        <h3>দোকানদার</h3>
-                        <h3>20</h3>
-                    </div>
-                    <div class="order__item-overview">
-                        <h3>প্রতি পিস</h3>
-                        <h3>Tk 5</h3>
-                    </div>
-                    <div class="order__item-overview">
-                        <h3>O/C</h3>
-                        <h3>-1220</h3>
-                    </div>
-                </div>
-
-            </div>
-            <div class="order__item">
-                <div class="order__item-header">
-                    <h2>পণ্যের নাম </h2>
-                    <h3>Tk 10</h3>
-                </div>
-                <div class="order__item-container">
-                    <div class="order__item-overview">
-                        <h3>পরিমান</h3>
-                        <h3>10</h3>
-                    </div>
-                    <div class="order__item-overview">
-                        <h3>দোকানদার</h3>
-                        <h3>20</h3>
-                    </div>
-                    <div class="order__item-overview">
-                        <h3>প্রতি পিস</h3>
-                        <h3>Tk 5</h3>
-                    </div>
-                    <div class="order__item-overview">
-                        <h3>O/C</h3>
-                        <h3>-1220</h3>
-                    </div>
-                </div>
-
-            </div>
+            <?php } ?>
         </div>
 
         <div class="total">

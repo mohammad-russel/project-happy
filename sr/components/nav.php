@@ -32,7 +32,7 @@
             </g>
         </svg>
     </a>
-    <a href="#" class="w-[50px] h-[50px] rounded-xl bg-[#F7FAFE] flex justify-center items-center group hover:bg-blue-500 tran relative">
+    <a href="orders?retailer_id=<?php  ?>" class="w-[50px] h-[50px] rounded-xl bg-[#F7FAFE] flex justify-center items-center group hover:bg-blue-500 tran relative">
         <svg class="stroke-[#4E5D78] w-6 stroke-[1.5px] tran group-hover:stroke-white" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
             <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
@@ -41,7 +41,7 @@
                 <path d="M9.1709 8C9.58273 9.16519 10.694 10 12.0002 10C13.3064 10 14.4177 9.16519 14.8295 8" stroke-width="1.5" stroke-linecap="round"></path>
             </g>
         </svg>
-        <!-- <span class="absolute text-xs font-medium bg-blue-500 px-[6px] py-[1px] rounded-full top-0 right-0 text-white">10</span> -->
+        <span class="absolute text-xs font-medium bg-blue-500 px-[6px] py-[1px] rounded-full top-0 right-0 text-white">10</span>
     </a>
 
 </div>

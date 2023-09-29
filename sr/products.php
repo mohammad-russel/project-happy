@@ -4,8 +4,17 @@ if (!isset($_SESSION["sr_id"])) {
     header("Location:./");
     exit();
 }
-$sr_id = $_SESSION["sr_id"];
 @include "../public/php/config.php";
+
+// echo $today;
+$sr_id = $_SESSION["sr_id"];
+$sql_s = "SELECT * FROM sr WHERE id = $sr_id";
+$result_s = mysqli_query($con, $sql_s);
+$row_s = mysqli_fetch_assoc($result_s);
+$retailer_id = $_GET['retailer_id'];
+$sql_r = "SELECT * FROM retailer WHERE id = $retailer_id";
+$result_r = mysqli_query($con, $sql_r);
+$row_r = mysqli_fetch_assoc($result_r);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -185,7 +194,7 @@ $sr_id = $_SESSION["sr_id"];
                 <ion-icon name="chevron-back-outline" class="tran h-7 w-7 cursor-pointer rounded-full bg-[#F8F8FB] p-2 text-[#8A94A6] hover:ring-1 hover:ring-slate-400"> </ion-icon>
             </a>
 
-            <h1 class="font bn text-[17px] font-semibold text-[#222950]">মোহাম্মদ নাজমুল আলী</h1>
+            <h1 class="font bn text-[17px] font-semibold text-[#222950]"><?php echo $row_r['name'] ?></h1>
             <span class="w-7"></span>
         </div>
 
@@ -204,26 +213,6 @@ $sr_id = $_SESSION["sr_id"];
                 <?php  }
                 ?>
 
-                <!-- <a href="#" class="product-c tran">
-                    <img class="mb-4 w-12" src="../public/image/icon/c2.png" alt="" />
-                    <h3 class="bn text-[10px] font-semibold xs:text-sm">স্ন্যাকস</h3>
-                </a>
-                <a href="#" class="product-c tran">
-                    <img class="mb-4 w-12" src="../public/image/icon/c3.png" alt="" />
-                    <h3 class="bn text-[10px] font-semibold xs:text-sm">তেল</h3>
-                </a>
-                <a href="#" class="product-c tran">
-                    <img class="mb-4 w-12" src="../public/image/icon/c4.png" alt="" />
-                    <h3 class="bn text-[10px] font-semibold xs:text-sm">বিস্কিট</h3>
-                </a>
-                <a href="#" class="product-c tran">
-                    <img class="mb-4 w-12" src="../public/image/icon/c5.png" alt="" />
-                    <h3 class="bn text-[10px] font-semibold xs:text-sm">পানীয়</h3>
-                </a>
-                <a href="#" class="product-c tran">
-                    <img class="mb-4 w-12" src="../public/image/icon/c6.png" alt="" />
-                    <h3 class="bn text-[10px] font-semibold xs:text-sm">চিপস</h3>
-                </a> -->
             </div>
 
             <!-- title -->
@@ -402,6 +391,89 @@ $sr_id = $_SESSION["sr_id"];
                         $(".productDetails").html(data);
                     }
                 })
+            })
+            // ------------------------- 
+            $(document).on("click", "input[id=pc]", function() {
+                var value = $(this).val();
+                var per_price = $(".per_price").val();
+                var quantity = $(".quantity").val();
+                var total = quantity * per_price;
+                $(".total-price").html(total)
+                $(".total-price-input").val(total)
+            });
+            $(document).on("click", "input[id=box]", function() {
+                var value = $(this).val();
+                var piece = $(".price").val();
+                var quantity = $(".quantity").val();
+                var total = quantity * piece;
+                // alert(total)
+                $(".total-price").html(total)
+                $(".total-price-input").val(total)
+            });
+            $(document).on("click", ".c-btn", function() {
+                var per_price = $(".per_price").val();
+                var piece = $("input[name=product_type]:checked").val();
+                var quantity = $(".quantity").val();
+                var total = quantity * piece * per_price;
+                // alert(total)
+                $(".total-price-input").val(total)
+                $(".total-price").html(total)
+
+            });
+            $(document).on("keyup", ".quantity", function() {
+                var quantity = $(this).val();
+                var per_price = $(".per_price").val();
+                var piece = $("input[name=product_type]:checked").val();
+                var total = quantity * piece * per_price;
+                // alert(total)
+                $(".total-price-input").val(total)
+                $(".total-price").html(total)
+            });
+            // -----------------
+            $(document).on("click", ".submit-btn", function() {
+                var product_id = $(this).siblings(".product_id").val();
+                var retailer_id = <?php echo $retailer_id ?>;
+                var pieceOfbox = $("input[name=product_type]:checked").val();
+                var quantity = $(".quantity").val();
+                var piece = pieceOfbox * quantity;
+                var price = $(".per_price").val();
+                var total_amount = piece * price; // Fix the variable name here
+                var sr_total_amount = $(".total-price-input").val();
+                var sr_price = sr_total_amount / piece;
+                var status = "order";
+                var sr_id = <?php echo $sr_id ?>;
+                var deller_id = <?php echo $row_s['deller_id'] ?>;
+
+                // Create an object to hold your data
+                var dataToSend = {
+                    product_id: product_id,
+                    retailer_id: retailer_id,
+                    pieceOfbox: pieceOfbox,
+                    quantity: quantity,
+                    piece: piece,
+                    price: price,
+                    total_amount: total_amount,
+                    sr_total_amount: sr_total_amount,
+                    sr_price: sr_price,
+                    status: status,
+                    sr_id: sr_id,
+                    deller_id: deller_id
+                };
+
+                // Use AJAX to send the data to the server
+                $.ajax({
+                    url: 'php/order', // Replace with the actual URL of your PHP script
+                    method: 'POST', // You can also use 'GET' depending on your server-side script
+                    data: dataToSend,
+                    success: function(response) {
+                        productDetails.classList.remove("openPopup");
+                    },
+                    error: function(xhr, status, error) {
+                        // Handle any errors that occur during the AJAX request
+                        console.error(xhr.responseText);
+                    }
+                });
+
             })
         })
     </script>
